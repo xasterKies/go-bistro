@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 	"github.com/xasterKies/go-bistro/database"
-	"github.com/xasterKies/routes"
-	"github.com/xasterKies/middleware"
+	"github.com/xasterKies/go-bistro/routes"
+	"github.com/xasterKies/go-bistro/middleware"
 	"go.mongodb.org/mongo-driver/mongo"
 	"github.com/gin-gonic/gin"
 )
