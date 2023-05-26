@@ -14,7 +14,7 @@ func GetUser() gin.HandlerFunc{
 	}
 }
 
-func Signup() gin.HandlerFunc{
+func SignUp() gin.HandlerFunc{
 	return func(c *gin.Context) {
 
 	}
