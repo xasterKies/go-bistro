@@ -36,9 +36,17 @@ func GetFoods() gin.HandlerFunc{
 		startIndex := (page-1) * recordPerPage
 		startIndex, err = strconv.Atoi(c.Query("startIndex"))
 
-		matchStage := bson.D({"$match", bson.D({})})
-		groupStage := bson.D({"$group", bson.D({"id", bson.D{"_id", "null"}}), {"total_count", bson.D({"$sum, 1"})}})
-		projectStage
+		matchStage := bson.D{{"$match", bson.D{{}}}}
+		groupStage := bson.D{{"$group", bson.D{{"id", bson.D{"_id", "null"}}}, {"total_count", bson.D{{"$sum, 1"}}}}}
+		projectStage  := bson.D{
+			{
+				"$project", bson.D{
+					{"_id", 0},
+					{"total_count", 1},
+					{"food_items", bson.D{{$slice}}}
+				}
+			}
+		}
 	}
 }
 
