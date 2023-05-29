@@ -121,7 +121,7 @@ func UpdateOrder() gin.HandlerFunc {
 			updateObj = append(updateObj, bson.E{"menu", order.Table_id})
 		}
 
-		order.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		order.Updated_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 		updateObj = append(updateObj, bson.E{"updated_at", order.Updated_at})
 
 		upsert := true
