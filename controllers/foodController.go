@@ -40,7 +40,7 @@ func GetFoods() gin.HandlerFunc{
 		startIndex, err = strconv.Atoi(c.Query("startIndex"))
 
 		matchStage := bson.D{{"$match", bson.D{{}}}}
-		groupStage := bson.D{{"$group", bson.D{{"id", bson.D{"_id", "null"}}}, {"total_count", bson.D{{"$sum", 1}}}, {"data", bson.D{{"$push", "$$ROOT"}}}}
+		groupStage := bson.D{{"$group", bson.D{{"_id", bson.D{{"_id", "null"}}}, {"total_count", bson.D{{"$sum", 1}}}, {"data", bson.D{{"$push", "$$ROOT"}}}}}}
 		projectStage  := bson.D{
 			{
 				"$project", bson.D{
@@ -62,10 +62,10 @@ func GetFoods() gin.HandlerFunc{
 		if err = result.All(ctx, &allFoods); err != nil {
 			log.Fatal(err)
 		}
-		c.JSON(http.StatusOk, allFoods[0])
+		c.JSON(http.StatusOK, allFoods[0])
 	}
 }
-}
+
 
 func GetFood() gin.HandlerFunc{
 	return func(c *gin.Context) {
@@ -138,7 +138,7 @@ func UpdateFood() gin.HandlerFunc {
 		var menu models.Menu
 		var food models.Food
 
-		foodId := c.Params("food_id")
+		foodId := c.Param("food_id")
 
 		if err := c.BindJSON(&food); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error":err.Error()})
@@ -170,7 +170,7 @@ func UpdateFood() gin.HandlerFunc {
 			updateObj = append(updateObj, bson.E{"menu", food.Price})
 		}
 
-		food.Updated_at = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		food.Updated_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 		updateObj = append(updateObj, bson.E{"updated_at", food.Updated_at})
 
 		upsert := true
