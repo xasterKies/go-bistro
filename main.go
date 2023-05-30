@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 	"github.com/xasterKies/go-bistro/database"
-	"github.com/xasterKies/go-bistro/routes"
-	"github.com/xasterKies/go-bistro/middleware"
+	routes "github.com/xasterKies/go-bistro/routes"
+	middleware "github.com/xasterKies/go-bistro/middleware"
 	"go.mongodb.org/mongo-driver/mongo"
 	"github.com/gin-gonic/gin"
 )
@@ -21,7 +21,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	routes.UserRoutes(router)
-	routes.Use(middleware.Authentication())
+	router.Use(middleware.Authentication())
 
 	routes.FoodRoutes(router)
 	routes.MenuRoutes(router)
