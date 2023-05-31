@@ -53,7 +53,7 @@ func GenerateAllTokens(email string, firstName string, lastName string, uid stri
 	return token, refreshToken, err
 }
 
-func updateAllTokens(signedToken string, signedRefreshToken string, userId string) {
+func UpdateAllTokens(signedToken string, signedRefreshToken string, userId string) {
 	var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
 	
 	var updateObj primitive.D
@@ -88,7 +88,7 @@ func updateAllTokens(signedToken string, signedRefreshToken string, userId strin
 
 }
 
-func validateToken(signedToken string)(claims *SignedDetails, msg string) {
+func ValidateToken(signedToken string)(claims *SignedDetails, msg string) {
 	token, err := jwt.ParseWithClaims(
 		signedToken,
 		&SignedDetails{},
