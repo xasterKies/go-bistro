@@ -3,8 +3,7 @@
 API backend for a Restaurant management system. This also serves as a blueprint for any type of management system in Go
 
 ![most languege](https://img.shields.io/github/languages/top/xasterKies/go-bistro?color=blue&style=for-the-badge)
-![stars](https://img.shields.io/github/stars/xasterKies/go-bistro?color=blue&style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors/xasterKies/go-bistro?color=blue&style=for-the-badge)
+
 
 ### Features
 
