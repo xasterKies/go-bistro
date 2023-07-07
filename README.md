@@ -2,7 +2,7 @@
 
 API backend for a Restaurant management system. This also serves as a blueprint for any type of management system in Go
 
-![most languege](https://img.shields.io/github/languages/top/xasterKies/go-bistro?color=blue&style=for-the-badge)
+![most language](https://img.shields.io/github/languages/top/xasterKies/go-bistro?color=blue&style=for-the-badge)
 
 
 ### Features
@@ -40,7 +40,7 @@ API backend for a Restaurant management system. This also serves as a blueprint 
 
 ### Running the project
 
-1. Install libraries dependencies
+1. Install library dependencies
 
     ```bash
     go mod tidy
@@ -59,5 +59,5 @@ API backend for a Restaurant management system. This also serves as a blueprint 
    ```
 
 
-##  Contributing
+### Contributing
 If you will like to make a contribution or suggest anything to the project will be happy to hear from you in issues or PRs :) 
